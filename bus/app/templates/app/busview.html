@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td {
+    border: 1px solid black;
+    padding: 10px;
+    width: 25%;
+  }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+          <td>name</td>
+          <td>date</td>
+          <td>destination</td>
+          <td>v_no</td>
+          <td>book</td>
+        </tr>
+        {% for i in form %} 
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.destination }}</td>
+            <td>{{ i.v_no }}</td>
+            <td><a href="{% url 'regs' i.id%}" class="btn btn-danger">{{ i.name }}</a></td>
+        </tr>
+          {% endfor %}
+          <tr>
+            <td rowspan="2"><a href="{% url 'buss' %}" class="btn btn-dark">ADD</a></td>
+            <td rowspan="2"><a href="{% url 'login' %}" class="btn btn-dark">LOGOUT</a></td>
+            <td colspan="1"><center>WELCOME <b><u>{{ f }}</u></b></center></td>
+            <td><a href="{% url 'file' %}" class="href">PRINT LIST</a></td>
+            <td><a href="{% url 'ticket' %}" class="btn btn-dark">my TICKETS</a></td>
+        </tr>
+      </table>
+      
+</body>
+</html>
